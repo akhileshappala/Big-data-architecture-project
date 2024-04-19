@@ -1,0 +1,50 @@
+apiVersion: apps/v1 #  for k8s versions before 1.9.0 use apps/v1beta2  and before 1.8.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: donor
+spec:
+  selector:
+    matchLabels:
+      app: donor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: donor
+    spec:
+      containers:
+      - name: donor
+        image: akhileshappala11/donorservice:amd64
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 8082
+            protocol: TCP
+        env:
+          - name: MYSQL_HOST
+            value: "mysql"
+          - name: MYSQL_PORT
+            value: "3306"
+          - name: MYSQL_USER
+            value: "root"
+          - name: MYSQL_PASSWORD
+            value: "password"
+          - name: PARENT_DB
+            value: "freeFood"
+          - name: DONOR_FLASK_PORT
+            value: "8082"
+          
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: donor
+spec:
+  type: NodePort
+  selector:
+    app: donor
+  ports:
+  - name: http
+    protocol: "TCP"
+    port: 80
+    targetPort: 8082
+  type: LoadBalancer  
