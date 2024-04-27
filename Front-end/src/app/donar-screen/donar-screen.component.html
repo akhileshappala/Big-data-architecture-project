@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <h1>Thank you {{donorEmail}} !!</h1>
+    </div>
+    <div class="row">
+        <h2>Your Contributions</h2>
+    </div>
+    <hr>
+    <p *ngIf="items.length === 0" >0 items in list</p>
+    <div class="col-sm-8">
+        <ul>
+            <dt *ngFor="let food of items"  style="margin-bottom: 5px;">
+                <div class="row" *ngIf="food.emailId==donorEmail">
+                    <div class="col-sm-8">
+                        {{food.foodName}} | {{food.quantity}} lbs
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-danger" (click)="removeFood(food.foodName)">delete</button>
+                    </div>
+                </div>
+            </dt>
+        </ul>
+    </div>
+    <div class="col-sm-4">
+        <button (click)="giveFood()" class="btn btn-info">
+            Donate!
+        </button>
+    </div>
+
+</div>

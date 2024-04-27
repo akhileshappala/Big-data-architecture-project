@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Food Surplus</title>
+    <meta property="og:title" content="Idle Intentional Kangaroo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <style data-tag="reset-style-sheet">
+      html {
+        line-height: 1.15;
+      }
+      body {
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+      }
+      p,
+      li,
+      ul,
+      pre,
+      div,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      figure,
+      blockquote,
+      figcaption {
+        margin: 0;
+        padding: 0;
+      }
+      button {
+        background-color: transparent;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+      }
+      button,
+      select {
+        text-transform: none;
+      }
+      button,
+      [type="button"],
+      [type="reset"],
+      [type="submit"] {
+        -webkit-appearance: button;
+      }
+      button::-moz-focus-inner,
+      [type="button"]::-moz-focus-inner,
+      [type="reset"]::-moz-focus-inner,
+      [type="submit"]::-moz-focus-inner {
+        border-style: none;
+        padding: 0;
+      }
+      button:-moz-focus,
+      [type="button"]:-moz-focus,
+      [type="reset"]:-moz-focus,
+      [type="submit"]:-moz-focus {
+        outline: 1px dotted ButtonText;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      input {
+        padding: 2px 4px;
+      }
+      img {
+        display: block;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style: normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+    <style>
+      @keyframes fade-in-left {
+        0% {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <link rel="stylesheet" href="./homepage.component.css" />
+    <div>
+      <link href="./homepage.component.css" rel="stylesheet" />
+      <div class="home-container">
+        <div class="home-header">
+          <header
+            data-thq="thq-navbar"
+            class="navbarContainer home-navbar-interactive"
+          >
+            <span class="logo">Food SURPLUS</span>
+            <div data-thq="thq-navbar-nav" class="home-desktop-menu">
+              <nav class="home-links"></nav>
+              <div class="home-buttons">
+                <button
+                  class="home-login buttonFlat"
+                  (click)="callLoginProvider()"
+                >
+                  Food Donar</button
+                ><button class="buttonFilled" (click)="callLoginUser()">
+                  User
+                </button>
+              </div>
+            </div>
+            <div data-thq="thq-burger-menu" class="home-burger-menu">
+              <svg viewBox="0 0 1024 1024" class="home-icon socialIcons">
+                <path
+                  d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
+                ></path>
+              </svg>
+            </div>
+            <div
+              data-thq="thq-mobile-menu"
+              class="home-mobile-menu1 mobileMenu"
+            >
+              <div class="home-nav">
+                <div class="home-top">
+                  <span class="logo">SURPLUS</span>
+                  <div data-thq="thq-close-menu" class="home-close-menu">
+                    <svg
+                      viewBox="0 0 1024 1024"
+                      class="home-icon02 socialIcons"
+                    >
+                      <path
+                        d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </header>
+        </div>
+        <div class="home-hero">
+          <div class="heroContainer home-hero1">
+            <div class="home-container01">
+              <h1 class="home-hero-heading heading1">
+                Effortless Food Surplus Management
+              </h1>
+              <span class="home-hero-sub-heading bodyLarge"
+                ><span
+                  ><span
+                    ><span
+                      >Simplify your surplus food handling with our innovative
+                      solution</span
+                    ><span> </span></span
+                  ><span><span> </span><span> </span></span
+                ></span>
+              </span>
+              <div class="home-btn-group">
+                <button class="buttonFilled" (click)="callLoginProvider()">
+                  Food Donar</button
+                ><button class="buttonFilled" (click)="callLoginUser()">
+                  User Login
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="home-features">
+          <div class="featuresContainer">
+            <div class="home-features1">
+              <div class="home-container02">
+                <span class="overline"><span>features</span><br /></span>
+                <h2 class="home-features-heading heading2">
+                  Efficient Food Surplus Management Features
+                </h2>
+                <span class="home-features-sub-heading bodyLarge"
+                  ><span
+                    ><span
+                      ><span
+                        >Discover how our product can streamline your surplus
+                        food management process</span
+                      ><span> </span></span
+                    ><span><span> </span><span> </span></span></span
+                  ><span
+                    ><span><span> </span><span> </span></span
+                    ><span><span> </span><span> </span></span></span
+                ></span>
+              </div>
+              <div class="home-container03">
+                <div class="featuresCard feature-card-feature-card">
+                  <svg viewBox="0 0 1024 1024" class="featuresIcon">
+                    <path
+                      d="M809.003 291.328l-297.003 171.819-297.003-171.819 275.456-157.397c4.779-2.731 9.899-4.48 15.147-5.333 9.301-1.451 18.987 0.128 27.904 5.291zM491.776 979.669c6.016 3.243 12.928 5.077 20.224 5.077 7.381 0 14.336-1.877 20.395-5.163 15.189-2.475 29.909-7.68 43.392-15.36l298.709-170.709c26.368-15.232 45.269-38.315 55.424-64.597 5.675-14.592 8.619-30.165 8.747-46.251v-341.333c0-20.395-4.821-39.723-13.397-56.917-0.939-3.029-2.219-5.973-3.883-8.832-1.963-3.371-4.267-6.357-6.912-8.96-1.323-1.835-2.731-3.669-4.139-5.419-9.813-12.203-21.845-22.528-35.456-30.507l-299.051-170.88c-26.027-15.019-55.467-19.84-83.328-15.531-15.531 2.432-30.507 7.637-44.288 15.488l-298.709 170.709c-16.341 9.429-29.824 21.888-40.149 36.267-2.56 2.56-4.864 5.547-6.784 8.832-1.664 2.901-2.987 5.888-3.925 8.96-1.707 3.456-3.243 6.955-4.608 10.496-5.632 14.635-8.576 30.208-8.704 45.995v341.632c0.043 30.293 10.581 58.197 28.331 80.128 9.813 12.203 21.845 22.528 35.456 30.507l299.051 170.88c13.824 7.979 28.587 13.099 43.605 15.445zM469.333 537.045v340.949l-277.12-158.336c-4.736-2.773-8.832-6.315-12.16-10.411-5.931-7.381-9.387-16.512-9.387-26.581v-318.379zM554.667 877.995v-340.949l298.667-172.757v318.379c-0.043 5.163-1.067 10.496-2.987 15.445-3.413 8.789-9.6 16.384-18.176 21.333z"
+                    ></path>
+                  </svg>
+                  <div class="feature-card-container">
+                    <h3 class="feature-card-text heading3">
+                      <span>Real-time Inventory Tracking</span>
+                    </h3>
+                    <span class="bodySmall"
+                      ><span
+                        >Track food surplus in real-time to minimize waste with
+                        alert system</span
+                      ></span
+                    >
+                  </div>
+                </div>
+                <div class="featuresCard feature-card-feature-card">
+                  <svg viewBox="0 0 1024 1024" class="featuresIcon">
+                    <path
+                      d="M809.003 291.328l-297.003 171.819-297.003-171.819 275.456-157.397c4.779-2.731 9.899-4.48 15.147-5.333 9.301-1.451 18.987 0.128 27.904 5.291zM491.776 979.669c6.016 3.243 12.928 5.077 20.224 5.077 7.381 0 14.336-1.877 20.395-5.163 15.189-2.475 29.909-7.68 43.392-15.36l298.709-170.709c26.368-15.232 45.269-38.315 55.424-64.597 5.675-14.592 8.619-30.165 8.747-46.251v-341.333c0-20.395-4.821-39.723-13.397-56.917-0.939-3.029-2.219-5.973-3.883-8.832-1.963-3.371-4.267-6.357-6.912-8.96-1.323-1.835-2.731-3.669-4.139-5.419-9.813-12.203-21.845-22.528-35.456-30.507l-299.051-170.88c-26.027-15.019-55.467-19.84-83.328-15.531-15.531 2.432-30.507 7.637-44.288 15.488l-298.709 170.709c-16.341 9.429-29.824 21.888-40.149 36.267-2.56 2.56-4.864 5.547-6.784 8.832-1.664 2.901-2.987 5.888-3.925 8.96-1.707 3.456-3.243 6.955-4.608 10.496-5.632 14.635-8.576 30.208-8.704 45.995v341.632c0.043 30.293 10.581 58.197 28.331 80.128 9.813 12.203 21.845 22.528 35.456 30.507l299.051 170.88c13.824 7.979 28.587 13.099 43.605 15.445zM469.333 537.045v340.949l-277.12-158.336c-4.736-2.773-8.832-6.315-12.16-10.411-5.931-7.381-9.387-16.512-9.387-26.581v-318.379zM554.667 877.995v-340.949l298.667-172.757v318.379c-0.043 5.163-1.067 10.496-2.987 15.445-3.413 8.789-9.6 16.384-18.176 21.333z"
+                    ></path>
+                  </svg>
+                  <div class="feature-card-container">
+                    <h3 class="feature-card-text heading3">
+                      <span>Donation Matching</span>
+                    </h3>
+                    <span class="bodySmall"
+                      ><span
+                        >Connect with local charities to donate excess
+                        food</span
+                      ></span
+                    >
+                  </div>
+                </div>
+                <div class="featuresCard feature-card-feature-card">
+                  <svg viewBox="0 0 1024 1024" class="featuresIcon">
+                    <path
+                      d="M809.003 291.328l-297.003 171.819-297.003-171.819 275.456-157.397c4.779-2.731 9.899-4.48 15.147-5.333 9.301-1.451 18.987 0.128 27.904 5.291zM491.776 979.669c6.016 3.243 12.928 5.077 20.224 5.077 7.381 0 14.336-1.877 20.395-5.163 15.189-2.475 29.909-7.68 43.392-15.36l298.709-170.709c26.368-15.232 45.269-38.315 55.424-64.597 5.675-14.592 8.619-30.165 8.747-46.251v-341.333c0-20.395-4.821-39.723-13.397-56.917-0.939-3.029-2.219-5.973-3.883-8.832-1.963-3.371-4.267-6.357-6.912-8.96-1.323-1.835-2.731-3.669-4.139-5.419-9.813-12.203-21.845-22.528-35.456-30.507l-299.051-170.88c-26.027-15.019-55.467-19.84-83.328-15.531-15.531 2.432-30.507 7.637-44.288 15.488l-298.709 170.709c-16.341 9.429-29.824 21.888-40.149 36.267-2.56 2.56-4.864 5.547-6.784 8.832-1.664 2.901-2.987 5.888-3.925 8.96-1.707 3.456-3.243 6.955-4.608 10.496-5.632 14.635-8.576 30.208-8.704 45.995v341.632c0.043 30.293 10.581 58.197 28.331 80.128 9.813 12.203 21.845 22.528 35.456 30.507l299.051 170.88c13.824 7.979 28.587 13.099 43.605 15.445zM469.333 537.045v340.949l-277.12-158.336c-4.736-2.773-8.832-6.315-12.16-10.411-5.931-7.381-9.387-16.512-9.387-26.581v-318.379zM554.667 877.995v-340.949l298.667-172.757v318.379c-0.043 5.163-1.067 10.496-2.987 15.445-3.413 8.789-9.6 16.384-18.176 21.333z"
+                    ></path>
+                  </svg>
+                  <div class="feature-card-container">
+                    <h3 class="feature-card-text heading3">
+                      <span>Analytics Dashboard</span>
+                    </h3>
+                    <span class="bodySmall"
+                      ><span
+                        >Visualize data to make informed decisions and reduce
+                        surplus</span
+                      ></span
+                    >
+                  </div>
+                </div>
+                <div class="featuresCard feature-card-feature-card">
+                  <svg viewBox="0 0 1024 1024" class="featuresIcon">
+                    <path
+                      d="M809.003 291.328l-297.003 171.819-297.003-171.819 275.456-157.397c4.779-2.731 9.899-4.48 15.147-5.333 9.301-1.451 18.987 0.128 27.904 5.291zM491.776 979.669c6.016 3.243 12.928 5.077 20.224 5.077 7.381 0 14.336-1.877 20.395-5.163 15.189-2.475 29.909-7.68 43.392-15.36l298.709-170.709c26.368-15.232 45.269-38.315 55.424-64.597 5.675-14.592 8.619-30.165 8.747-46.251v-341.333c0-20.395-4.821-39.723-13.397-56.917-0.939-3.029-2.219-5.973-3.883-8.832-1.963-3.371-4.267-6.357-6.912-8.96-1.323-1.835-2.731-3.669-4.139-5.419-9.813-12.203-21.845-22.528-35.456-30.507l-299.051-170.88c-26.027-15.019-55.467-19.84-83.328-15.531-15.531 2.432-30.507 7.637-44.288 15.488l-298.709 170.709c-16.341 9.429-29.824 21.888-40.149 36.267-2.56 2.56-4.864 5.547-6.784 8.832-1.664 2.901-2.987 5.888-3.925 8.96-1.707 3.456-3.243 6.955-4.608 10.496-5.632 14.635-8.576 30.208-8.704 45.995v341.632c0.043 30.293 10.581 58.197 28.331 80.128 9.813 12.203 21.845 22.528 35.456 30.507l299.051 170.88c13.824 7.979 28.587 13.099 43.605 15.445zM469.333 537.045v340.949l-277.12-158.336c-4.736-2.773-8.832-6.315-12.16-10.411-5.931-7.381-9.387-16.512-9.387-26.581v-318.379zM554.667 877.995v-340.949l298.667-172.757v318.379c-0.043 5.163-1.067 10.496-2.987 15.445-3.413 8.789-9.6 16.384-18.176 21.333z"
+                    ></path>
+                  </svg>
+                  <div class="feature-card-container">
+                    <h3 class="feature-card-text heading3">
+                      <span>Automated Alerts</span>
+                    </h3>
+                    <span class="bodySmall"
+                      ><span
+                        >Receive notifications for approaching expiry dates and
+                        surplus levels</span
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="home-pricing">
+          <div class="pricingContainer">
+            <div class="home-container04">
+              <span class="overline"><span>How it works</span><br /></span>
+              <h2 class="heading2">
+                Below are the steps of how it works for different types of
+                users.
+              </h2>
+            </div>
+            <div class="home-container05">
+              <div class="freePricingCard home-pricing-card">
+                <div class="home-container06">
+                  <span class="home-text36 heading3">Food Donor</span
+                  ><span class="bodySmall"
+                    >Start managing your food surplus for free</span
+                  >
+                </div>
+
+                <div class="home-container08">
+                  <div class="home-container09">
+                    <span class="home-text40">✔</span
+                    ><span class="bodySmall"
+                      >Identification of Surplus Food.</span
+                    >
+                  </div>
+                  <div class="home-container09">
+                    <span class="home-text40">✔</span
+                    ><span class="bodySmall">Quality Assessment.</span>
+                  </div>
+                  <div class="home-container09">
+                    <span class="home-text40">✔</span
+                    ><span class="bodySmall">packagind and Handling.</span>
+                  </div>
+                  <div class="home-container10">
+                    <span class="home-text41">✔</span
+                    ><span class="bodySmall"
+                      >Adding the same to the inventory.
+                    </span>
+                  </div>
+                  <div class="home-container11">
+                    <span class="home-text42">✔</span
+                    ><span class="bodySmall">Coordination and Logistics.</span>
+                  </div>
+                </div>
+                <button
+                  class="home-button buttonOutline"
+                  (click)="callLoginProvider()"
+                >
+                  Be a kind Donor.
+                </button>
+              </div>
+
+              <div class="proPricingCard home-pricing-card2">
+                <div class="home-container20">
+                  <span class="home-text54 heading3"
+                    ><span>User</span><br /></span
+                  ><span class="bodySmall"
+                    >Get the benifits of a user role.</span
+                  >
+                </div>
+
+                <div class="home-container22">
+                  <div class="home-container23">
+                    <span class="home-text61">✔</span
+                    ><span class="bodySmall">Identification of Need</span>
+                  </div>
+                  <div class="home-container24">
+                    <span class="home-text63">✔</span
+                    ><span class="bodySmall"
+                      >Accessing food distribution points.</span
+                    >
+                  </div>
+                  <div class="home-container24">
+                    <span class="home-text63">✔</span
+                    ><span class="bodySmall"
+                      >Availability of Surplus Food.</span
+                    >
+                  </div>
+
+                  <div class="home-container24">
+                    <span class="home-text63">✔</span
+                    ><span class="bodySmall"
+                      >Distribution process/ Personal use.</span
+                    >
+                  </div>
+                  <div class="home-container27">
+                    <span class="home-text66">✔</span
+                    ><span class="bodySmall">Support for Nutrition.</span>
+                  </div>
+                </div>
+                <button
+                  class="home-button2 buttonFilledSecondary"
+                  (click)="callLoginUser()"
+                >
+                  Be a Proud User
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="home-banner">
+          <div class="bannerContainer home-banner1">
+            <h1 class="home-banner-heading heading2">
+              Revolutionize Your Food Surplus Management
+            </h1>
+            <span class="home-banner-sub-heading bodySmall"
+              ><span
+                ><span
+                  ><span
+                    >Our product streamlines the process of managing surplus
+                    food, reducing waste, and maximizing efficiency. With our
+                    user-friendly platform, you can easily track, donate, or
+                    repurpose excess food to make a positive impact.</span
+                  ><span> </span></span
+                ><span><span> </span><span> </span></span></span
+              ><span
+                ><span><span> </span><span> </span></span
+                ><span><span> </span><span> </span></span></span
+            ></span>
+          </div>
+        </div>
+        <div class="home-faq">
+          <div class="faqContainer">
+            <div class="home-faq1">
+              <div class="home-container28">
+                <span class="overline"><span>FAQ</span><br /></span>
+                <h2 class="home-text84 heading2">Common questions</h2>
+                <span class="home-text85 bodyLarge"
+                  ><span
+                    >Here are some of the most common questions that we
+                    get.</span
+                  ><br
+                /></span>
+              </div>
+              <div class="home-container29">
+                <div class="question1-container">
+                  <span class="question1-text heading3"
+                    ><span>What is food surplus management?</span></span
+                  ><span class="bodySmall"
+                    ><span
+                      >Food surplus management involves the efficient handling
+                      and distribution of excess food to minimize waste and
+                      ensure it reaches those in need.</span
+                    ></span
+                  >
+                </div>
+                <div class="question1-container">
+                  <span class="question1-text heading3"
+                    ><span
+                      >Why is food surplus management important?</span
+                    ></span
+                  ><span class="bodySmall"
+                    ><span
+                      >Food surplus management is crucial in reducing food
+                      waste, alleviating hunger, and promoting sustainability by
+                      redirecting surplus food to those who can benefit from
+                      it.</span
+                    ></span
+                  >
+                </div>
+                <div class="question1-container">
+                  <span class="question1-text heading3"
+                    ><span
+                      >How can our product help with food surplus
+                      management?</span
+                    ></span
+                  ><span class="bodySmall"
+                    ><span
+                      >Our product provides a user-friendly platform to track,
+                      manage, and redistribute surplus food efficiently,
+                      connecting donors with organizations in need.</span
+                    ></span
+                  >
+                </div>
+                <div class="question1-container">
+                  <span class="question1-text heading3"
+                    ><span
+                      >Is food surplus management cost-effective?</span
+                    ></span
+                  ><span class="bodySmall"
+                    ><span
+                      >Yes, effective food surplus management can lead to cost
+                      savings for businesses, reduce disposal expenses, and
+                      contribute to a positive social and environmental
+                      impact.</span
+                    ></span
+                  >
+                </div>
+                <div class="question1-container">
+                  <span class="question1-text heading3"
+                    ><span
+                      >What types of organizations can benefit from food surplus
+                      management?</span
+                    ></span
+                  ><span class="bodySmall"
+                    ><span
+                      >Various organizations such as University Dinings,
+                      Restaurants, Grocery stores, event venues, and food banks
+                      can benefit from implementing food surplus management
+                      practices to reduce waste and support their
+                      communities.</span
+                    ></span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="home-footer">
+          <footer class="footerContainer home-footer1">
+            <div class="home-separator"></div>
+            <div class="home-container31">
+              <span class="bodySmall home-text88"
+                >© 2024 Food Surplus, All Rights Reserved.</span
+              >
+              <div class="home-icon-group1"></div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <script
+      data-section-id="navbar"
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+  </body>
+</html>
