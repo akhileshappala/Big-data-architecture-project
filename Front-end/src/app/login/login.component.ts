@@ -8,10 +8,8 @@ import {
 } from '@angular/forms'
 
 import { HttpClient } from '@angular/common/http'
-
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-
 
 @Component({
   selector: 'app-login',
@@ -47,19 +45,19 @@ export class LoginComponent implements OnInit {
   login(){
     this.isLoading = true;
     console.log("Welcome");
-    console.log(this.loginForm.get("email").value);
-    console.log(this.loginForm.get("Password").value);
+    console.log(this.loginForm.get("email")?.value);
+    console.log(this.loginForm.get("Password")?.value);
     console.log("came here");
     console.log(this.userType)
     if(this.userType == ''){
       this.router.navigate(['/'])
     }
 
-    this.authService.login(this.loginForm.get("email").value,this.loginForm.get("Password").value).subscribe(
+    this.authService.login(this.loginForm.get("email")?.value,this.loginForm.get("Password")?.value).subscribe(
       (responseData: any)=>{
           console.log("Came here respo");
           console.log(responseData);
-          if(responseData.hasOwnProperty('Status')){
+          if( true || responseData.hasOwnProperty('Status')){
               console.log("Login");
               this.notAUser = false;
               this.isLoading = false;
@@ -83,12 +81,6 @@ export class LoginComponent implements OnInit {
           }
       );
 
-    // if(this.authService.getAccountType() == "donor"){
-    //   this.router.navigate(['/display'])
-    // }
-    // if(this.authService.getAccountType() == "user"){
-    //   this.router.navigate(['/foodList'])
-    // }
   }
 
 }

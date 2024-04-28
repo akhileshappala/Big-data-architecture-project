@@ -8,9 +8,6 @@ import { foodList } from './foodlist.service';
 })
 export class ResListComponent implements OnInit {
 
-  // @Input() foodsr:any;
-
-  // @Output() foodSelected = new EventEmitter();
 
   foodsr :any;
 
@@ -18,8 +15,7 @@ export class ResListComponent implements OnInit {
 
   ngOnInit(): void {
     this.foodsr = this.foodItems.getList().subscribe(response=>{
-      console.log(response);
-      this.foodsr = response; 
+      this.foodsr = response;
     });
   }
 

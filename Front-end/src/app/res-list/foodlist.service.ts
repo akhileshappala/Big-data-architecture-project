@@ -1,6 +1,9 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { environment } from "src/environments/environment";
 
+const userAPIURL = environment.userAPIURL;
+const donorAPIURL = environment.donorAPIURL;
 @Injectable({
     providedIn: 'root'
 })
@@ -55,8 +58,7 @@ export class foodList {
 
     getList(){
         console.log("getting food...")
-        return this.http.get('http://34.16.11.211:80/user/listFoodItems')
-        // return this.foodsr.slice();
+        return this.http.get(userAPIURL + '/user/listFoodItems')
     }
 
 }

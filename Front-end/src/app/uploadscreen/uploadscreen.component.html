@@ -1,82 +1,95 @@
+<!-- background -->
 
-  <!-- background -->
-  
-  <div class="content" role="main">
-  
-    <!-- Login Card -->
-    <div class="card highlight-card card-small">
-        <div *ngIf="isLoading" class="lds-ripple"><div></div><div></div></div>
-        <!-- Signup form-->
-        <form noValidate *ngIf="!isLoading"
-        [formGroup]="uploadForm" 
-        (ngSubmit)="onSubmit()"
-        class="loginBox">
-            <div class="loginBox">
-                <h2><img src="../../../../assets/3fs.png" width="30%"></h2>
-                <!-- <h3>Have an account Log In <a href="">here</a></h3> -->
-                <input 
-                    type="email" 
-                    name="" 
-                    placeholder="Enter Email id" 
-                    formControlName="email"
-                    [value]=""
-                    required=""
-                    readonly
-                />
-                <span *ngIf="isEmailNull" style="margin-left: 0;" class="help-block">*Enter email</span>
-                <input 
-                    type="text" 
-                    name="" 
-                    placeholder="Enter Food Name" 
-                    formControlName="foodName"
-                    [value]=""
-                    required=""
-                />
-                <span *ngIf="isFoodNull" style="margin-left: 0;" class="help-block">*Enter Food name</span>
-                <input 
-                    type="text" 
-                    name="" 
-                    placeholder="Description" 
-                    formControlName="description"
-                    [value]=""
-                    required=""
-                />
-                <input 
-                    type="text" 
-                    id="address" 
-                    name="" 
-                    placeholder="Enter Address" 
-                    formControlName="address"
-                    [value]=""
-                    required=""
-                />
-                <span *ngIf="isAddressNull" style="margin-left: 0;" class="help-block">*Please enter address</span>
-                <input 
-                    type="text" 
-                    id="pincode" 
-                    name="" 
-                    placeholder="Enter Postal Code" 
-                    formControlName="pincode"
-                    [value]=""
-                    required=""
-                />
-                <span *ngIf="isPincodeNull" style="margin-left: 0;" class="help-block">*Enter pincode</span>
-                <input 
-                    type="text" 
-                    id="quantity" 
-                    name="" 
-                    placeholder="Enter Quantity" 
-                    formControlName="quantity"
-                    [value]=""
-                    required=""
-                />
-                <span *ngIf="isQuantityNull" style="margin-left: 0;" class="help-block">*Please enter quantity</span>
-                <!-- <div>
+<div class="content" role="main">
+  <!-- Login Card -->
+  <div class="card highlight-card card-small">
+    <div *ngIf="isLoading" class="lds-ripple">
+      <div></div>
+      <div></div>
+    </div>
+    <!-- Signup form-->
+    <form
+      noValidate
+      *ngIf="!isLoading"
+      [formGroup]="uploadForm"
+      (ngSubmit)="onSubmit()"
+      class="loginBox"
+    >
+      <div class="loginBox">
+        <h2><img src="../../../../assets/3fs.png" width="30%" /></h2>
+        <input
+          type="email"
+          name=""
+          placeholder="Enter Email id"
+          formControlName="email"
+          [value]=""
+          required=""
+          readonly
+        />
+        <span *ngIf="isEmailNull" style="margin-left: 0" class="help-block"
+          >*Enter email</span
+        >
+        <input
+          type="text"
+          name=""
+          placeholder="Enter Food Name"
+          formControlName="foodName"
+          [value]=""
+          required=""
+        />
+        <span *ngIf="isFoodNull" style="margin-left: 0" class="help-block"
+          >*Enter Food name</span
+        >
+        <input
+          type="text"
+          name=""
+          placeholder="Description"
+          formControlName="description"
+          [value]=""
+          required=""
+        />
+        <input
+          type="text"
+          id="address"
+          name=""
+          placeholder="Enter Address"
+          formControlName="address"
+          [value]=""
+          required=""
+        />
+        <span *ngIf="isAddressNull" style="margin-left: 0" class="help-block"
+          >*Please enter address</span
+        >
+        <input
+          type="text"
+          id="pincode"
+          name=""
+          placeholder="Enter Postal Code"
+          formControlName="pincode"
+          [value]=""
+          required=""
+        />
+        <span *ngIf="isPincodeNull" style="margin-left: 0" class="help-block"
+          >*Enter pincode</span
+        >
+        <input
+          type="text"
+          id="quantity"
+          name=""
+          placeholder="Enter Quantity"
+          formControlName="quantity"
+          [value]=""
+          required=""
+        />
+        <span *ngIf="isQuantityNull" style="margin-left: 0" class="help-block"
+          >*Please enter quantity</span
+        >
+        <!-- <div>
                 <label for="file" style="color: #a6a6a6;">Upload Image</label>
-                <input 
-                    type="file" 
+                <input
+                    type="file"
                     id="file"
-                    name="" 
+                    name=""
                     placeholder="Add Image"
                     required=""
                     accept="image/*"
@@ -84,73 +97,117 @@
                 />
 
                 </div> -->
-                <div class="row">
-                    <div class="col-sm-3" >
-                        <div class="row">
-                            <p style="color: white;">Veg/ Non Veg</p>
-                        </div>
-                        <div class="row">
-                            <select class="form-select" formControlName="veg" aria-label="Default select example" style="background-color:#333; color: #a6a6a6;margin-right: 5px;">
-                                <option selected value="1">Veg</option>
-                                <option value="2">Non Veg</option>
-                            </select>
-                        </div>    
-                    </div><br>
-                    <div class="col-sm-3" >
-                        <div class="row">
-                            <p style="color: white;">Is Nuts Free?</p>
-                        </div>
-                        <div class="row">
-                            <select class="form-select" formControlName="nutsFree" aria-label="Default select example" style="background-color:#333; color: #a6a6a6;margin-right: 5px;">
-                                <option value="1">Yes</option>
-                                <option value="2">No</option>
-                            </select>
-                        </div>
-                        
-                    </div><br>
-                    <div class="col-sm-3" >
-                        <div class="row">
-                            <p style="color: white;">Is Gluten Free?</p>
-                        </div>
-                        <div class="row">
-                            <select class="form-select" formControlName="glutenFree" aria-label="Default select example" style="background-color:#333; color: #a6a6a6;margin-right: 5px;">
-                                <option value="1">Yes</option>
-                                <option value="2">No</option>
-                            </select>
-                        </div>
-                        
-                    </div><br>
-                    <div class="col-sm-3" >
-                        <div class="row">
-                            <p style="color: white;">Is Dairy Free?</p>
-                        </div>
-                        <div class="row">
-                            <select class="form-select" formControlName="dairy" aria-label="Default select example" style="background-color:#333; color: #a6a6a6;margin-right: 5px;">
-                                <option value="1">Yes</option>
-                                <option value="2">No</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                
-                
-                <br>
-                <button 
-                    class="btn btn-warning"
-                    type="submit" 
-                >Submit</button>
-                <!-- <small>By submiting, you agree to the <a href="#">Terms and Conditions</a> here.</small> -->
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="row">
+              <p style="color: white">Veg/ Non Veg</p>
             </div>
-        </form>
-<!-- <br>Dirty: {{ registrationForm.dirty }}
+            <div class="row">
+              <select
+                class="form-select"
+                formControlName="veg"
+                aria-label="Default select example"
+                style="
+                  background-color: #333;
+                  color: #a6a6a6;
+                  margin-right: 5px;
+                "
+              >
+                <option selected value="1">Veg</option>
+                <option value="2">Non Veg</option>
+              </select>
+            </div>
+          </div>
+          <br />
+          <div class="col-sm-3">
+            <div class="row">
+              <p style="color: white">Is Nuts Free?</p>
+            </div>
+            <div class="row">
+              <select
+                class="form-select"
+                formControlName="nutsFree"
+                aria-label="Default select example"
+                style="
+                  background-color: #333;
+                  color: #a6a6a6;
+                  margin-right: 5px;
+                "
+              >
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+              </select>
+            </div>
+          </div>
+          <br />
+          <div class="col-sm-3">
+            <div class="row">
+              <p style="color: white">Is Gluten Free?</p>
+            </div>
+            <div class="row">
+              <select
+                class="form-select"
+                formControlName="glutenFree"
+                aria-label="Default select example"
+                style="
+                  background-color: #333;
+                  color: #a6a6a6;
+                  margin-right: 5px;
+                "
+              >
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+              </select>
+            </div>
+          </div>
+          <br />
+          <div class="col-sm-3">
+            <div class="row">
+              <p style="color: white">Is Dairy Free?</p>
+            </div>
+            <div class="row">
+              <select
+                class="form-select"
+                formControlName="dairy"
+                aria-label="Default select example"
+                style="
+                  background-color: #333;
+                  color: #a6a6a6;
+                  margin-right: 5px;
+                "
+              >
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <br />
+        <button class="btn btn-warning" type="submit">Submit</button>
+        <!-- <small>By submiting, you agree to the <a href="#">Terms and Conditions</a> here.</small> -->
+      </div>
+    </form>
+    <!-- <br>Dirty: {{ registrationForm.dirty }}
 <br>Touched: {{ registrationForm.touched }}
 <br>Valid: {{ registrationForm.valid }}
 <br>Value: {{ registrationForm.value | json }} -->
-    </div>
-  
-    <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
-      <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
-    </svg>
-  
   </div>
 
+  <svg
+    id="clouds"
+    alt="Gray Clouds Background"
+    xmlns="http://www.w3.org/2000/svg"
+    width="2611.084"
+    height="485.677"
+    viewBox="0 0 2611.084 485.677"
+  >
+    <path
+      id="Path_39"
+      data-name="Path 39"
+      d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z"
+      transform="translate(142.69 -634.312)"
+      fill="#eee"
+    />
+  </svg>
+</div>

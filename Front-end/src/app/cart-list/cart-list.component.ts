@@ -3,6 +3,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { cartList } from './cartList.service';
+import { environment } from 'src/environments/environment';
+const userAPIURL = environment.userAPIURL;
+const donorApiUrl = environment.donorAPIURL;
 
 @Component({
   selector: 'app-cart-list',
@@ -55,7 +58,7 @@ export class CartListComponent implements OnInit {
     formData.append('itemCart',JSON.stringify(myOrder));
     formData.append('emailId',this.authService.email);
 
-    this.http.post('http://34.16.11.211:80/user/orderCartItems',formData).subscribe(response=>{
+    this.http.post(userAPIURL + '/user/orderCartItems',formData).subscribe(response=>{
       console.log(response);
       if(response.hasOwnProperty('status')){
         console.log("checking out...");
@@ -79,13 +82,6 @@ export class CartListComponent implements OnInit {
 
 
 
-    // var myOrder: { [x: string]: any; };
-    // this.foodAddedToCart.forEach((element: any) => {
-    //   myOrder[element.food.foodId] = element.quantity;
-
-    // });
-    // console.log("Hello");
-    // console.log(myOrder);
 
 
 

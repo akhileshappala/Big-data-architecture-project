@@ -1,7 +1,9 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-
+import { environment } from '../environments/environment';
+const userAPIURL = environment.userAPIURL;
+const donorApiUrl = environment.donorAPIURL;
 @Injectable({
     providedIn: 'root'
 })
@@ -14,7 +16,6 @@ export class AuthService{
     isChecking: boolean = false;
 
     email: string = "";
-
 
 
 
@@ -48,14 +49,14 @@ export class AuthService{
         if(this.accountType == "user"){
             return this.http.post(
                 // 'http://localhost:5001/user/loginUser',
-                'http://34.16.11.211:80/user/loginUser',
+                userAPIURL + '/user/loginUser',
                 formData
             );
 
         }
         if(this.accountType == "donor"){
             return this.http.post(
-                'http://34.41.204.34:80/donor/loginDonor',
+                donorApiUrl + '/donor/loginDonor',
                 formData
             );
         }
@@ -73,7 +74,7 @@ export class AuthService{
 
         return this.http.post(
             // 'http://localhost:5001/user/createUser',
-            'http://34.16.11.211:80/user/createUser',
+            userAPIURL + '/user/createUser',
             formData
         );
     }

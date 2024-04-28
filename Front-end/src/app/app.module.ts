@@ -22,7 +22,6 @@ import { DonarScreenComponent } from './donar-screen/donar-screen.component';
 import { DonarService } from './donar-screen/donar.service';
 import { ThankyouComponent } from './thankyou/thankyou.component';
 import { DonarRegistrationPageComponent } from './donar-registration-page/donar-registration-page.component';
-
 const appRoutes: Routes = [
   {path: '', component:HomepageComponent},
   {path: 'login', component: LoginComponent},
@@ -58,6 +57,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+
     RouterModule.forRoot(appRoutes)
   ],
   providers: [foodList, cartList, AuthService, DonarService],

@@ -4,7 +4,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from "../auth.service";
-
+import { environment } from "src/environments/environment";
+const userAPIURL = environment.userAPIURL;
+const donorApiUrl = environment.donorAPIURL;
 @Component({
   selector: 'app-uploadscreen',
   templateUrl: './uploadscreen.component.html',
@@ -105,9 +107,8 @@ export class UploadscreenComponent implements OnInit {
         formData.append('isDairyFree', dairy);
         formData.append('quantity', quantity);
 
-
         this.http.post(
-            'http://34.41.204.34:80/donor/addFoodItem',
+          donorApiUrl+'/donor/addFoodItem',
             formData
         ).subscribe(
           (      responseData: { hasOwnProperty: (arg0: string) => any; })=>{

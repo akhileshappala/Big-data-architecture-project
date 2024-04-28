@@ -10,18 +10,16 @@ import { cartList } from '../cart-list/cartList.service';
 })
 export class RestaurantsComponent implements OnInit {
 
-  
+
   @Input() food: any;
 
   @Output() foodAdded: any = new EventEmitter();
 
   quantity: any;
-
-
   constructor(private addItem: cartList, public authService:AuthService){}
 
   ngOnInit(): void {
-    
+
   }
 
   addToCart(food:any) {
@@ -35,9 +33,9 @@ export class RestaurantsComponent implements OnInit {
         'quantity': this.quantity
       });
     }
-    
+
     // this.foodAdded.emit(food);
-    
+
   }
 
 }
