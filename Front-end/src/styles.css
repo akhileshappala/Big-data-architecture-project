@@ -42,6 +42,6 @@
   --dl-color-custom-neutral-light: #ffffff;
   --dl-space-space-oneandhalfunits: 24px;
 }
-@import "primeng/resources/themes/lara-light-blue/theme.css";
-@import "primeng/resources/primeng.css";
+/* @import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css"; */
 @import url("../node_modules/bootstrap/dist/css/bootstrap.min.css");
