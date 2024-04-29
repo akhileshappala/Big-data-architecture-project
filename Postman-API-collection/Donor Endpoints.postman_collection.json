@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "90fec28a-e0ee-439f-ba21-1d594601ee1c",
+		"name": "Donor Endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24744809",
+		"_collection_link": "https://winter-crater-462508.postman.co/workspace/My-Workspace~fa057323-9b17-4594-80c8-d5f115580883/collection/24744809-90fec28a-e0ee-439f-ba21-1d594601ee1c?action=share&source=collection_link&creator=24744809"
+	},
+	"item": [
+		{
+			"name": "CreateDonor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://34.82.141.247/donor/createDonor",
+					"protocol": "http",
+					"host": [
+						"34",
+						"82",
+						"141",
+						"247"
+					],
+					"path": [
+						"donor",
+						"createDonor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LoginDonor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "emailId",
+							"value": "helloworld@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234567",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://34.82.141.247/donor/loginDonor",
+					"protocol": "http",
+					"host": [
+						"34",
+						"82",
+						"141",
+						"247"
+					],
+					"path": [
+						"donor",
+						"loginDonor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddFoodItem",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "emailId",
+							"value": "helloworld@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "foodName",
+							"value": "Oranges",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "a fruit",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "80302",
+							"type": "text"
+						},
+						{
+							"key": "pincode",
+							"value": "80302",
+							"type": "text"
+						},
+						{
+							"key": "isVeg",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "isNutsFree",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "isGlutenFree",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "isDairyFree",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://34.82.141.247/donor/addFoodItem",
+					"protocol": "http",
+					"host": [
+						"34",
+						"82",
+						"141",
+						"247"
+					],
+					"path": [
+						"donor",
+						"addFoodItem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getDonorFoodItems",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "emailId",
+							"value": "helloworld@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://34.82.141.247/donor/getDonorFoodItems",
+					"protocol": "http",
+					"host": [
+						"34",
+						"82",
+						"141",
+						"247"
+					],
+					"path": [
+						"donor",
+						"getDonorFoodItems"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteDonorFoodItem",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "foodId",
+							"value": "7",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://34.82.141.247/donor/deleteDonorFoodItem",
+					"protocol": "http",
+					"host": [
+						"34",
+						"82",
+						"141",
+						"247"
+					],
+					"path": [
+						"donor",
+						"deleteDonorFoodItem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateDonorFoodItem",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "foodId",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "55",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://34.82.141.247/donor/updateDonorFoodItem",
+					"protocol": "http",
+					"host": [
+						"34",
+						"82",
+						"141",
+						"247"
+					],
+					"path": [
+						"donor",
+						"updateDonorFoodItem"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
