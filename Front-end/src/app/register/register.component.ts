@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
   }
 
 
-  onSubmit(){
+  async onSubmit(){
     this.registered = false;
     this.alreadyExists = false;
     const username = this.registerForm.get('username').value;

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">FoodBridge</a>
   <button
     class="navbar-toggler"
@@ -13,7 +13,6 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto">
-      <!-- Use "mr-auto" to push items to the left -->
       <li
         class="nav-item"
         routerLinkActive="active"
@@ -25,10 +24,65 @@
       </li>
     </ul>
     <ul class="navbar-nav">
-      <!-- This ul will be aligned to the right -->
       <li class="nav-item nav-item-cart" routerLinkActive="active">
         <a class="nav-link" routerLink="/cartList">Shopping Cart</a>
       </li>
     </ul>
   </div>
-</nav>
+</nav> -->
+
+<div class="navbar home-header mb-5">
+  <header data-thq="thq-navbar" class="navbarContainer home-navbar-interactive">
+    <span class="logo" routerLink="/" style="margin-right: 20px"
+      >Food Bridge</span
+    >
+    <button
+      class="btn btn-secondary"
+      *ngIf="user.email && user.accountType == 'user'"
+      routerLink="/foodList"
+    >
+      Food Items
+    </button>
+    <div data-thq="thq-navbar-nav" class="home-desktop-menu">
+      <nav class="home-links"></nav>
+      <div class="home-buttons" *ngIf="!user.email">
+        <button class="home-login buttonFlat" (click)="callLoginProvider()">
+          Food donor</button
+        ><button class="buttonFilled" (click)="callLoginUser()">User</button>
+      </div>
+      <div
+        class="home-buttons"
+        style="margin-right: 5px"
+        *ngIf="user.email && user.accountType == 'user'"
+      >
+        <button class="btn btn-primary" routerLink="/cartList">
+          Shopping Cart
+        </button>
+      </div>
+      <div class="home-buttons">
+        <p *ngIf="user.email">{{ user.email }}</p>
+      </div>
+    </div>
+    <div data-thq="thq-burger-menu" class="home-burger-menu">
+      <svg viewBox="0 0 1024 1024" class="home-icon socialIcons">
+        <path
+          d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
+        ></path>
+      </svg>
+    </div>
+    <div data-thq="thq-mobile-menu" class="home-mobile-menu1 mobileMenu">
+      <div class="home-nav">
+        <div class="home-top">
+          <span class="logo">Bridge</span>
+          <div data-thq="thq-close-menu" class="home-close-menu">
+            <svg viewBox="0 0 1024 1024" class="home-icon02 socialIcons">
+              <path
+                d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>

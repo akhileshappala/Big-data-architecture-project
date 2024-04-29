@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { BehaviorSubject, Observable, Subject } from "rxjs";
 import { environment } from '../environments/environment';
 const userAPIURL = environment.userAPIURL;
 const donorApiUrl = environment.donorAPIURL;
@@ -10,42 +10,34 @@ const donorApiUrl = environment.donorAPIURL;
 export class AuthService{
 
     constructor(private http: HttpClient){}
-
-    accountType: string = "";
+    private sessionUser = new Subject<any>();;
+    private isAuthenticatedSubject: BehaviorSubject<any> = new BehaviorSubject<any>({});
+        accountType: string = "";
 
     isChecking: boolean = false;
 
     email: string = "";
 
-
-
-
-
     getAccountType(){
         return this.accountType;
     }
-
     setAccountType(type: string){
         this.accountType = type;
     }
-
-    login(email: any, password:any): any{
-
+    login(email: any, password:any): Observable<any>{
         const data = {
             emailId: email,
             password: password
         }
-
         this.email = email;
-
         console.log(this.accountType);
-
-
         const formData = new FormData();
         formData.append('emailId',email);
         formData.append('password',password);
         console.log("Your",email,password, data);
-
+        this.updateUser({email: this.email, accountType : this.accountType});
+        // const isAuthenticated = email !== '' && password !== '';
+        this.isAuthenticatedSubject.next({email: this.email, accountType : this.accountType});
         if(this.accountType == "user"){
             return this.http.post(
                 // 'http://localhost:5001/user/loginUser',
@@ -59,10 +51,17 @@ export class AuthService{
                 donorApiUrl + '/donor/loginDonor',
                 formData
             );
+            
         }
+        return this.http.post(
+            // 'http://localhost:5001/user/loginUser',
+            userAPIURL + '/user/loginUser',
+            formData
+        );
+       
     }
 
-    register(details: any){
+     register(details: any): Observable<any>{
         console.log("came here to register->");
         const formData = new FormData();
         formData.append('name',details.username)
@@ -70,13 +69,22 @@ export class AuthService{
         formData.append('password',details.password)
         formData.append('phoneNumber',details.phoneNumber)
         console.log(details);
-        console.log("came here 1234");
-
         return this.http.post(
             // 'http://localhost:5001/user/createUser',
             userAPIURL + '/user/createUser',
             formData
         );
     }
+
+    updateUser(sessionObj: any) {
+        this.sessionUser.next(sessionObj);
+      }
+    
+      isAuthenticated(): Observable<any> {
+        return this.isAuthenticatedSubject.asObservable();
+      }
+    getUserName() {
+        return this.sessionUser;
+      }
 
 }

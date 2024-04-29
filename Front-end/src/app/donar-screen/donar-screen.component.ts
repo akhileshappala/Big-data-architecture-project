@@ -35,6 +35,7 @@ export class DonarScreenComponent implements OnInit {
 
   removeFood(name: any){
     this.items = this.items.filter((obj: { foodName: string; }) => obj.foodName != name);
+    
   }
 
 }

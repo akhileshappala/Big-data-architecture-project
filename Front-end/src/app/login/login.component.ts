@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  login(){
+   login(){
     this.isLoading = true;
     console.log("Welcome");
     console.log(this.loginForm.get("email")?.value);
@@ -57,8 +57,10 @@ export class LoginComponent implements OnInit {
       (responseData: any)=>{
           console.log("Came here respo");
           console.log(responseData);
-          if( true || responseData.hasOwnProperty('Status')){
+          if(  responseData.hasOwnProperty('status')){
               console.log("Login");
+              // this.authService.updateUser({email: this.loginForm.get("email"), accountType : this.userType});
+
               this.notAUser = false;
               this.isLoading = false;
               if(this.userType == 'user'){
@@ -72,6 +74,11 @@ export class LoginComponent implements OnInit {
               this.isLoading = false;
               console.log("No account found");
               this.notAUser = true;
+
+          }
+          else{this.isLoading = false;
+            console.log("No account found");
+            this.notAUser = true;
 
           }
       },

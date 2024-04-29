@@ -1,31 +1,88 @@
-<div class="container">
-  <div class="row">
-    <h1>Thank you {{ donorEmail }} !!</h1>
-  </div>
-  <div class="row">
-    <div class="col-sm-8">
-      <h2>Your Contributions</h2>
+<div class="donorContainer">
+  <div class="container">
+    <div class="row">
+      <h1>Thank you {{ donorEmail }} !!</h1>
     </div>
-    <div class="col-sm-4">
-      <button (click)="giveFood()" class="btn btn-info">Donate!</button>
+    <div class="row">
+      <div class="col-sm-8">
+        <h2>Your Contributions</h2>
+      </div>
+      <div class="col-sm-4">
+        <button (click)="giveFood()" class="btn btn-success">
+          Click to Donate Here!
+        </button>
+      </div>
     </div>
-  </div>
-  <hr />
-  <p *ngIf="items.length === 0">0 items in list</p>
-  <div class="col-sm-8">
-    <ul>
-      <dt *ngFor="let food of items" style="margin-bottom: 5px">
-        <div class="row" *ngIf="food.emailId == donorEmail">
-          <div class="col-sm-8">
-            {{ food.foodName }} | {{ food.quantity }} lbs
+    <hr />
+    <p *ngIf="items.length === 0">0 items in list</p>
+    <div class="col-12">
+      <!-- <ul>
+        <dt *ngFor="let food of items" style="margin-bottom: 5px">
+          <div class="row" *ngIf="food.emailId == donorEmail">
+            <div class="col-sm-8">
+              {{ food.foodName }} | {{ food.quantity }} lbs
+            </div>
+            <div class="col-sm-4">
+              <button class="btn btn-danger" (click)="removeFood(food.foodName)">
+                delete
+              </button>
+            </div>
           </div>
-          <div class="col-sm-4">
-            <button class="btn btn-danger" (click)="removeFood(food.foodName)">
-              delete
-            </button>
-          </div>
-        </div>
-      </dt>
-    </ul>
+        </dt>
+      </ul> -->
+
+      <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+          <tr>
+            <th>Item Name</th>
+            <th>Description</th>
+            <th>Availability</th>
+            <th>Address</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let food of items">
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="ms-3">
+                  <p class="fw-bold mb-1">{{ food.foodName }}</p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{ food.description }}</p>
+            </td>
+            <td>
+              <span
+                *ngIf="food.quantity > 0"
+                class="badge bg-success"
+                style="background-color: green"
+              >
+                Available</span
+              >
+              <span
+                *ngIf="food.quantity <= 0"
+                [ngClass]="{
+                  ' badge  bg-danger': food.quantity > 1,
+                }"
+              >
+                Not Available</span
+              >
+            </td>
+            <td>{{ food.address }}</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="removeFood(food.foodName)"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

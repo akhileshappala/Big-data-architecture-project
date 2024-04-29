@@ -57,7 +57,6 @@ export class foodList {
       ];
 
     getList(){
-        console.log("getting food...")
         return this.http.get(userAPIURL + '/user/listFoodItems')
     }
 

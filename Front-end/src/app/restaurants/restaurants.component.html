@@ -1,81 +1,171 @@
-<div class="container">
-  <div
-    class="row"
-    style="
-      border: 2px solid rgb(40, 228, 156);
-      margin-bottom: 2px;
-      border-radius: 5px;
-    "
-    *ngIf="food.quantity > 0"
-  >
-    <div class="col-sm-8">
-      <h1>{{ food.foodName }}</h1>
-      <p>{{ food.description }}</p>
-      <hr />
-      <p><b>Address </b>: {{ food.address }}, {{ food.pincode }}</p>
-      <span style="border: 2px solid grey; box-shadow: inset; padding: 2px"
-        >Availability :{{ food.quantity }} lbs</span
+<div>
+  <div class="container">
+    <div
+      class="row cards col-12"
+      style="
+        border: 2px solid #000;
+        margin-bottom: 2px;
+        border-radius: 5px;
+        background-color: oldlace;
+      "
+      *ngIf="food.quantity > 0"
+    >
+      <div class="col-8">
+        <h1><b>Item : </b>{{ food.foodName }}</h1>
+        <p>Description: {{ food.description }}</p>
+        <hr />
+        <p><b>Address </b>: {{ food.address }}, {{ food.pincode }}</p>
+        <span style="border: 2px solid grey; box-shadow: inset; padding: 2px"
+          >Current Availability :{{ food.quantity }} lbs</span
+        >
+        <hr />
+        <div style="display: inline">
+          <ul class="list-inline">
+            <dt
+              *ngIf="food.isVeg == 0 || food.isVeg == 1"
+              [ngStyle]="{ color: 'green' }"
+            >
+              Veg
+            </dt>
+            <dt *ngIf="food.isVeg == 2" [ngStyle]="{ color: 'red' }">
+              Non Veg
+            </dt>
+            <dt
+              *ngIf="food.isGlutenFree == 0 || food.isGlutenFree == 1"
+              [ngStyle]="{ color: 'green' }"
+            >
+              Gluten Free
+            </dt>
+            <dt *ngIf="food.isGlutenFree == 2" [ngStyle]="{ color: 'red' }">
+              not Gluten Free
+            </dt>
+            <dt
+              *ngIf="food.isNutsFree == 0 || food.isNutsFree == 1"
+              [ngStyle]="{ color: 'green' }"
+            >
+              Nuts Free
+            </dt>
+            <dt *ngIf="food.isNutsFree == 2" [ngStyle]="{ color: 'red' }">
+              May Contain Nuts
+            </dt>
+            <dt
+              *ngIf="food.isDairyFree == 0 || food.isDairyFree == 1"
+              [ngStyle]="{ color: 'green' }"
+            >
+              Contains Dairy
+            </dt>
+            <dt
+              *ngIf="food.isDairyFree == 2"
+              [ngStyle]="{ color: 'light green' }"
+            >
+              Dairy Free
+            </dt>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="col-4"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+        "
       >
-      <hr />
-      <div style="display: inline">
-        <ul class="list-inline">
-          <dt
-            *ngIf="food.isVeg == 0 || food.isVeg == 1"
-            [ngStyle]="{ color: 'green' }"
+        Select quantity :
+        <div style="margin-bottom: 5px">
+          <input
+            style="border-radius: 10%"
+            type="number"
+            [(ngModel)]="quantity"
+            placeholder="Enter Quantity (in lbs)"
+          />
+          <p
+            style="color: red; display: block"
+            *ngIf="quantity > food.quantity"
           >
-            Veg
-          </dt>
-          <dt *ngIf="food.isVeg == 2" [ngStyle]="{ color: 'red' }">Non Veg</dt>
-          <dt
-            *ngIf="food.isGlutenFree == 0 || food.isGlutenFree == 1"
-            [ngStyle]="{ color: 'green' }"
+            *Quantity more than available
+          </p>
+        </div>
+        <div>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="addToCart(food)"
           >
-            Gluten Free
-          </dt>
-          <dt *ngIf="food.isGlutenFree == 2" [ngStyle]="{ color: 'red' }">
-            not Gluten Free
-          </dt>
-          <dt
-            *ngIf="food.isNutsFree == 0 || food.isNutsFree == 1"
-            [ngStyle]="{ color: 'green' }"
-          >
-            Nuts Free
-          </dt>
-          <dt *ngIf="food.isNutsFree == 2" [ngStyle]="{ color: 'red' }">
-            May Contain Nuts
-          </dt>
-          <dt
-            *ngIf="food.isDairyFree == 0 || food.isDairyFree == 1"
-            [ngStyle]="{ color: 'green' }"
-          >
-            Contains Dairy
-          </dt>
-          <dt
-            *ngIf="food.isDairyFree == 2"
-            [ngStyle]="{ color: 'light green' }"
-          >
-            Dairy Free
-          </dt>
-        </ul>
+            Add to cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 
+  <div class="card" style="width: 18rem" *ngIf="food.quantity > 0">
+    <img
+      src="https://mdbcdn.b-cdn.net/img/new/standard/city/062.webp"
+      class="card-img-top"
+      alt="Chicago Skyscrapers"
+    />
+    <div class="card-body">
+      <h5 class="card-title">Item : {{ food.foodName }}</h5>
+      <p class="card-text">
+        <b>Address </b>: {{ food.address }}, {{ food.pincode }}
+      </p>
+      <p class="card-text">
+        {{ food.description }}
+      </p>
+    </div>
+    <ul class="list-group list-group-light list-group-small">
+      <li class="list-group-item px-4">Availability :{{ food.quantity }} lbs</li>
+      <li>
+        Diet :
+        <span
+          *ngIf="food.isVeg == 0 || food.isVeg == 1"
+          [ngStyle]="{ color: 'green' }"
+          >Veg
+        </span>
+        <span *ngIf="food.isVeg == 2" [ngStyle]="{ color: 'red' }">Non-Veg </span>
+        <span
+          *ngIf="food.isGlutenFree == 0 || food.isGlutenFree == 1"
+          [ngStyle]="{ color: 'green' }"
+        >
+          Gluten Free
+        </span>
+        <span *ngIf="food.isGlutenFree == 2" [ngStyle]="{ color: 'red' }"
+          >Not-Gluten-Free
+        </span>
+        <span
+          *ngIf="food.isNutsFree == 0 || food.isNutsFree == 1"
+          [ngStyle]="{ color: 'green' }"
+        >
+          Nuts Free</span
+        >
+        <span *ngIf="food.isNutsFree == 2" [ngStyle]="{ color: 'red' }">
+          May Contain Nuts
+        </span>
+        <span *ngIf="food.isDairyFree == 2" [ngStyle]="{ color: 'light green' }">
+          Dairy Free</span
+        >
+        <span
+          *ngIf="food.isDairyFree == 0 || food.isDairyFree == 1"
+          [ngStyle]="{ color: 'green' }"
+        >
+          Dairy Product</span
+        >
+      </li>
+    </ul>
+    <div class="card-body">
+      <p>
+        Select Quantity
         <input
           type="number"
           [(ngModel)]="quantity"
           placeholder="Enter Quantity (in lbs)"
-          style="margin-bottom: 5px"
+          style="margin-bottom: 5px; width: 20px"
         />
-        <p style="color: red; display: block" *ngIf="quantity > food.quantity">
-          *Quantity more than available
-        </p>
-      </div>
+      </p>
+      <a href="#" class="card-link">Another link</a>
     </div>
-    <div class="col-sm-4" style="display: flex; align-items: center">
-      <button
-        type="button"
-        class="btn btn-primary btn-sm"
-        (click)="addToCart(food)"
-      >
-        Add to cart</button
-      ><br />
-    </div>
-  </div>
+  </div> -->
 </div>

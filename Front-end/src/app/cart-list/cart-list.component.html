@@ -1,48 +1,48 @@
-<app-header></app-header>
-
-<div class="container" *ngIf="foodAddedToCart.length == 0">
-  <p>No items added ...</p>
-</div>
-<div class="container" *ngIf="foodAddedToCart.length > 0">
-  <div class="lds-facebook" *ngIf="isLoading">
-    <div></div>
-    <div></div>
-    <div></div>
+<div class="cart-list-container">
+  <div class="container" *ngIf="foodAddedToCart.length == 0">
+    <p>No items added ...</p>
   </div>
-  <table class="table" *ngIf="!isLoading">
-    <thead>
-      <tr>
-        <th scope="col">Food</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Address</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- <app-cart *ngFor="let food of foodAddedToCart" [foodSelected]="food"></app-cart> -->
-      <tr *ngFor="let food of foodAddedToCart">
-        <td>{{ food.food.foodName }}</td>
-        <td>{{ food.quantity }} lbs</td>
-        <td>{{ food.food.address }}, {{ food.food.pincode }}</td>
-        <td>
-          <button
-            type="button"
-            class="btn-close"
-            aria-label="Close"
-            (click)="removeFromCart(food)"
-          >
-            X
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <button
-    *ngIf="foodAddedToCart.length > 0"
-    type="button"
-    class="btn btn-primary btn-sm"
-    (click)="checkout()"
-  >
-    Checkout
-  </button>
+  <div class="container" *ngIf="foodAddedToCart.length > 0">
+    <div class="lds-facebook" *ngIf="isLoading">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <table class="table" *ngIf="!isLoading">
+      <thead>
+        <tr>
+          <th scope="col">Food</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Address</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <app-cart *ngFor="let food of foodAddedToCart" [foodSelected]="food"></app-cart> -->
+        <tr *ngFor="let food of foodAddedToCart">
+          <td>{{ food.food.foodName }}</td>
+          <td>{{ food.quantity }} lbs</td>
+          <td>{{ food.food.address }}, {{ food.food.pincode }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn-close"
+              aria-label="Close"
+              (click)="removeFromCart(food)"
+            >
+              X
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button
+      *ngIf="foodAddedToCart.length > 0"
+      type="button"
+      class="btn btn-primary btn-sm"
+      (click)="checkout()"
+    >
+      Checkout
+    </button>
+  </div>
 </div>
