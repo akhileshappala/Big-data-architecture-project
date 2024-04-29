@@ -1481,6 +1481,21 @@
   text-transform: uppercase;
   cursor: pointer;
 }
+.vl {
+  border-left: 2px solid black;
+  height: 20px;
+  margin-right: 10px;
+}
+.logo2 {
+  font-size: 2em;
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 150%;
+  /* border-left: 2px solid black;
+  height: 15px; */
+  text-transform: uppercase;
+  cursor: pointer;
+}
 .overline {
   font-size: 12px;
   font-family: Raleway;

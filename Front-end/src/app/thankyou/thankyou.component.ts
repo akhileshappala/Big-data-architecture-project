@@ -21,6 +21,7 @@ export class ThankyouComponent {
   goToHome(){
     this.route.navigate(["/"]);
   }
-  
-
+  goToItems(){
+    this.route.navigate(["/foodList"]);
+  }
 }

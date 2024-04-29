@@ -41,13 +41,14 @@
       />
       Food Bridge
     </span>
-    <button
-      class="btn btn-secondary"
+    <span *ngIf="user.email && user.accountType == 'user'" class="vl"> </span>
+    <span
+      class="logo2"
       *ngIf="user.email && user.accountType == 'user'"
       routerLink="/foodList"
     >
-      Food Items
-    </button>
+      Food-Items
+    </span>
     <div data-thq="thq-navbar-nav" class="home-desktop-menu">
       <nav class="home-links"></nav>
       <div class="home-buttons" *ngIf="!user.email">
