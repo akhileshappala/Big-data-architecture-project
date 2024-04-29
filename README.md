@@ -1,5 +1,9 @@
 # Food Bridge
 
+# Links
+
+https://foodsurplus.netlify.app/
+
 This project is a food distribution service to simplify the process of distributing donated food to those who need it. Donors can log in and add excess food they wish to donate. Users can then view the available food, select the items they would like, add them to their cart, and order them. When a donor adds a food item they can also add dietary information such as whether it is nut, dairy, and gluten-free. This makes it easier for people to receive food they like and that meets their dietary needs. 
 
 # Architecture Diagram
@@ -25,6 +29,4 @@ This project is a food distribution service to simplify the process of distribut
   
 <img width="1511" alt="Screenshot 2024-04-29 at 2 43 29 PM" src="https://github.com/akhileshappala/Big-data-architecture-project/assets/54890411/ce868b08-7f9a-4920-879a-cd084ca5d02f">
 
-# Links
 
-https://foodsurplus.netlify.app/
