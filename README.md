@@ -2,8 +2,11 @@
 
 # UseFull Links:
 Live Link: https://foodsurplus.netlify.app/
+
 Superset : 
+
 Pinot: http://35.230.36.239:9000/
+
 Presentation:  https://www.canva.com/design/DAGDWbstfZw/7CNJIN5nUOyo4TgwCR9xUQ/edit?utm_content=DAGDWbstfZw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 Postman 
