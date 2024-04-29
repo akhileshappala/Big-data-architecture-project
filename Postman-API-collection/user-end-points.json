@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "75b0528a-5cac-40e6-a0e7-57280ec9c455",
+		"name": "User Endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24744809",
+		"_collection_link": "https://winter-crater-462508.postman.co/workspace/My-Workspace~fa057323-9b17-4594-80c8-d5f115580883/collection/24744809-75b0528a-5cac-40e6-a0e7-57280ec9c455?action=share&source=collection_link&creator=24744809"
+	},
+	"item": [
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Kireeti Mucherla",
+							"type": "text"
+						},
+						{
+							"key": "emailId",
+							"value": "kireetimucherla@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						},
+						{
+							"key": "phoneNumber",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://35.197.88.145/user/createUser",
+					"protocol": "http",
+					"host": [
+						"35",
+						"197",
+						"88",
+						"145"
+					],
+					"path": [
+						"user",
+						"createUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loginUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "emailId",
+							"value": "kireetimucherla@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://35.197.88.145/user/loginUser",
+					"protocol": "http",
+					"host": [
+						"35",
+						"197",
+						"88",
+						"145"
+					],
+					"path": [
+						"user",
+						"loginUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listFoodItems",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://35.197.88.145/user/listFoodItems",
+					"protocol": "http",
+					"host": [
+						"35",
+						"197",
+						"88",
+						"145"
+					],
+					"path": [
+						"user",
+						"listFoodItems"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "orderCartItems",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "itemCart",
+							"value": "{\"1\":1,\"3\":1}",
+							"type": "text"
+						},
+						{
+							"key": "emailId",
+							"value": "kireetimucherla@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://35.197.88.145/user/orderCartItems",
+					"protocol": "http",
+					"host": [
+						"35",
+						"197",
+						"88",
+						"145"
+					],
+					"path": [
+						"user",
+						"orderCartItems"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
