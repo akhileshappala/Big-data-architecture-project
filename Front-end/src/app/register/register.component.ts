@@ -103,18 +103,21 @@ export class RegisterComponent implements OnInit {
         console.log(responseData);
         if(responseData.hasOwnProperty('status')){
             console.log("registered");
+            window.alert("Successfully this.registered, Please Login.");
             this.registered = true;
             this.isLoading = false;
             
         }else if(responseData.hasOwnProperty('Error')){
             this.isLoading = false;
             console.log("Account already exists");
+            window.alert("Account already exists, Please Login.");
             this.alreadyExists = true;
             
         }
     },
     (      err: any)=>{
             console.log("Came here");
+            window.alert("Authentication Failed, Please try again later.");
             console.log("Error",err);
         }
     );

@@ -2,14 +2,15 @@
 
 <div class="content" role="main">
   <!-- Login Card -->
-  <p *ngIf="alreadyExists" style="color: red" class="help-block">
-    * User already exists
-  </p>
-  <p *ngIf="registered" style="color: red" class="help-block">
-    *Thank you for registering please login <a routerLink="/login">here</a>
-  </p>
+
   <div class="card highlight-card card-small">
     <!-- Signup form-->
+    <p *ngIf="alreadyExists" style="color: red" class="help-block">
+      * User already exists
+    </p>
+    <p *ngIf="registered" style="color: red" class="help-block">
+      *Thank you for registering please login <a routerLink="/login">here</a>
+    </p>
 
     <form
       novalidate

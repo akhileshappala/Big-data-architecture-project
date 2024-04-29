@@ -1,8 +1,53 @@
 <div class="jumbotron text-center">
-    <h1 class="display-3">Thank You!</h1>
-    <p class="lead">Your order is confirmed.<strong>Please check your email</strong> </p>
-    <hr>
-    <p class="lead">
-      <a class="btn btn-primary btn-sm" (click)="goToHome()" role="button">Continue to homepage</a>
-    </p>
+  <h1 class="display-3">Thank You!</h1>
+  <p class="lead">
+    Your order is confirmed.<strong>Please collect it from address: </strong>
+  </p>
+  <hr />
+
+  <div class="container" *ngIf="foodAddedToCart.length > 0">
+    <div class="lds-facebook">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <h3>Current Order Details.</h3>
+    <table class="table align-middle mb-0 bg-white">
+      <thead class="bg-light">
+        <tr>
+          <th scope="col">Item Name</th>
+          <th scope="col">Quantity Ordered</th>
+          <th scope="col">Pick-Up Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <app-cart *ngFor="let food of foodAddedToCart" [foodSelected]="food"></app-cart> -->
+        <tr *ngFor="let food of foodAddedToCart">
+          <td>
+            <div class="d-flex align-items-center">
+              <div class="ms-3">
+                <p class="fw-bold mb-1">{{ food.food.foodName }}</p>
+              </div>
+            </div>
+          </td>
+
+          <td style="float: left">
+            <p class="fw-normal mb-1">{{ food.quantity }} lbs</p>
+          </td>
+
+          <td>
+            <p style="float: left" class="fw-normal mb-1">
+              {{ food.food.address }}, {{ food.food.pincode }}
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+
+  <p class="lead">
+    <button class="btn btn-primary" (click)="goToHome()" role="button">
+      Order More.
+    </button>
+  </p>
+</div>

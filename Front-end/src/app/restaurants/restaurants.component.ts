@@ -32,6 +32,7 @@ export class RestaurantsComponent implements OnInit {
         'food': food,
         'quantity': this.quantity
       });
+      window.alert("Item successfully added to cart.");
     }
 
     // this.foodAdded.emit(food);

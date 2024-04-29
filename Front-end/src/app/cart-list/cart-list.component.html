@@ -8,29 +8,40 @@
       <div></div>
       <div></div>
     </div>
-    <table class="table" *ngIf="!isLoading">
-      <thead>
+    <h3>Current Order Details.</h3>
+    <table class="table align-middle mb-0 bg-white" *ngIf="!isLoading">
+      <thead class="bg-light">
         <tr>
-          <th scope="col">Food</th>
-          <th scope="col">Quantity</th>
+          <th scope="col">Item Name</th>
+          <th scope="col">Quantity Ordered</th>
           <th scope="col">Address</th>
-          <th scope="col"></th>
+          <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
         <!-- <app-cart *ngFor="let food of foodAddedToCart" [foodSelected]="food"></app-cart> -->
         <tr *ngFor="let food of foodAddedToCart">
-          <td>{{ food.food.foodName }}</td>
-          <td>{{ food.quantity }} lbs</td>
+          <td>
+            <div class="d-flex align-items-center">
+              <div class="ms-3">
+                <p class="fw-bold mb-1">{{ food.food.foodName }}</p>
+              </div>
+            </div>
+          </td>
+
+          <td>
+            <p class="fw-normal mb-1">{{ food.quantity }} lbs</p>
+          </td>
+
           <td>{{ food.food.address }}, {{ food.food.pincode }}</td>
           <td>
             <button
               type="button"
-              class="btn-close"
-              aria-label="Close"
+              class="btn btn-danger"
+              aria-label="Cancel"
               (click)="removeFromCart(food)"
             >
-              X
+              Cancel
             </button>
           </td>
         </tr>
