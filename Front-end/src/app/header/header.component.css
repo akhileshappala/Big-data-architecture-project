@@ -1479,6 +1479,7 @@
   font-weight: 700;
   line-height: 150%;
   text-transform: uppercase;
+  cursor: pointer;
 }
 .overline {
   font-size: 12px;

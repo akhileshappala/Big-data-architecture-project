@@ -33,9 +33,14 @@
 
 <div class="navbar home-header mb-5">
   <header data-thq="thq-navbar" class="navbarContainer home-navbar-interactive">
-    <span class="logo" routerLink="/" style="margin-right: 20px"
-      >Food Bridge</span
-    >
+    <span class="logo" routerLink="/" style="margin-right: 20px">
+      <img
+        style="height: 70px"
+        src="../../assets/3fs.png"
+        alt="Food Bridge Logo"
+      />
+      Food Bridge
+    </span>
     <button
       class="btn btn-secondary"
       *ngIf="user.email && user.accountType == 'user'"
