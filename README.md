@@ -1,8 +1,12 @@
 # Food Bridge
 
-# UseFull Link:
+# UseFull Links:
 Live Link: https://foodsurplus.netlify.app/
 Superset : 
+Pinot: http://35.230.36.239:9000/
+Presentation:  https://www.canva.com/design/DAGDWbstfZw/7CNJIN5nUOyo4TgwCR9xUQ/edit?utm_content=DAGDWbstfZw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+Postman 
 
 
 
@@ -15,6 +19,7 @@ This project is a food distribution service to simplify the process of distribut
 
     ├── Backend-APIs                   # Files for the backend
     ├── Front-end                      # Files for the frontend
+    ├── Postman API collection         # Postman collection
     ├── Backend-Analytics              # Files for the backend-analytics
     ├── LICENSE
     └── README.md
