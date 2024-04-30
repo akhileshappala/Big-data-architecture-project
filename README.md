@@ -3,7 +3,7 @@
 # UseFull Links:
 Live Link: https://foodsurplus.netlify.app/
 
-Superset : 
+Azure Board : 
 
 Pinot: http://35.230.36.239:9000/
 
